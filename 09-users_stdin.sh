@@ -8,6 +8,12 @@
 
 while read -r line
 do	
-  grep -w "^$line:" /etc/passwd 2> /dev/null
-
+  grep ^$line: /etc/passwd &> /dev/null
+  if [ $? -eq 0 ]
+  then
+   echo $line
+  else
+   echo "El usuario $line no existe" >> /dev/stderr
+  fi
 done
+

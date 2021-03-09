@@ -9,7 +9,7 @@
 while read -r line
 do	
   car=$(echo "$line" | wc -c)
-  if [ "$car" -gt 60 ]; then
+  if [ "$car" -gt 61 ]; then
     echo $line
   fi	  
 done
